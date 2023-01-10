@@ -15,7 +15,6 @@ let usersSchema = new mongoose.Schema({
   },
   userID: {
     type: String,
-    required: true,
     unique: true
   },
   isAdmin:{

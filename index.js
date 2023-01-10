@@ -9,13 +9,9 @@ const userRoutes = require("./routes/userRoutes");
 const PORT = 3000
 
 app.set('view engine', 'ejs')
+app.use(express.urlencoded());
 
 app.use("/",userRoutes);
-
-
-// app.get("/", (req, res) =>{
-//     res.render("index");
-// })
 
 app.listen(PORT,async (err)=>{
     if(err) console.log(err)
