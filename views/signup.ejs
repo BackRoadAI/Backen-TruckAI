@@ -1,16 +1,9 @@
-<html>
-  <head>
-    <title>
-      TruckAI | SignUP
-    </title>
-  </head>
-  <body>
-    <form action="/" method="post">
-      <input type="text" name="name" placeholder="Name">
-      <input type="email" name="email" placeholder="Email ID">
-      <input type="password" name="password" placeholder="Password">
-      <input type="password" name="confirm_password" placeholder="Confirm Password">
-      <input type="submit" value="Sign Up">
-    </form>
-  </body>
-</html>
+<%- include("layouts/header") -%>
+        <form action="" method="post">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email ID" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <input type="submit" value="Sign Up">
+          </form>
+<%- include("layouts/footer") -%>
