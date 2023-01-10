@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/BackRoadAI/admin-page/issues"
   },
-  "homepage": "https://github.com/BackRoadAI/admin-page#readme"
+  "homepage": "https://github.com/BackRoadAI/admin-page#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.3"
+  }
 }
