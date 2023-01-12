@@ -9,7 +9,7 @@ const isLogin = async(req,res,next)=>{
 
 const isLogOut = async(req,res,next)=>{
     if(req.session.user_id){
-        res.redirect("/home");
+        res.redirect("/dashboard");
     }
     next();
 }

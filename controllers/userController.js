@@ -54,7 +54,7 @@ const authLogin = async(req,res)=>{
             if(bcrypt.compareSync(password, user.password)){
                 req.session.user_id = user._id
                 console.log("Password is correct")
-                res.redirect("/home")
+                res.redirect("/dashboard")
             }else{
                 console.log("Password is incorrect")
             }
@@ -62,13 +62,14 @@ const authLogin = async(req,res)=>{
     })
 }
 
+// User logout
 const userLogOut = async(req,res)=>{
     req.session.destroy();
     res.redirect("/")
 }
 
-
-const loadHome = async(req,res)=>{
+// User dashboard
+const userDashboard = async(req,res)=>{
     res.render("userDashboard")
 }
 
@@ -77,6 +78,6 @@ module.exports = {
     loadLogin,
     insertUSer,
     authLogin,
-    loadHome,
+    userDashboard,
     userLogOut
 }
