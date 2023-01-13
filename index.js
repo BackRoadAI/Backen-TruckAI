@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require("cookie-parser")
-const morgan = require("morgan")
+const jsonwebtoken = require("jsonwebtoken")
 const dbConnect = require("./dbConnect")
-const session = require("express-session")
+// const session = require("express-session")
 const user = require("./models/users");
 const userRoutes = require("./routes/userRoutes");
 
@@ -14,16 +14,16 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(express.json()); 
  
-app.use(
-    session({
-    key:"user_id",
-    secret : "random stuff",
-    resave:false,
-    saveUninitialized:false,
-    coookie:{
-        expires : 600000
-    }
-}))
+// app.use(
+//     session({
+//     key:"user_id",
+//     secret : "random stuff",
+//     resave:false,
+//     saveUninitialized:false,
+//     coookie:{
+//         expires : 600000
+//     }
+// }))
 
 const PORT = 3000
 
