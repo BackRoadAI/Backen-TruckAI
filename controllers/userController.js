@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const users = require("../models/users");
-
+const jwt = require("jsonwebtoken");
 // load signup page
 const loadSignUp = async(req,res)=>{
     res.render("signup")
@@ -43,34 +43,53 @@ const insertUSer = async(req,res)=>{
 }
 
 // authenticate user login
-const authLogin = async(req,res)=>{
+const authLogin = async (req,res)=>{
     let email = req.body.email;
     let password = req.body.password;
-    users.findOne({email:email},(err,user)=>{
+    const user = {email:email, password:password}
+    users.findOne({email:email}, async (err,user)=>{
         if(!user){
             console.log("User does not exists")
         } else {
             console.log("User exists")
             if(bcrypt.compareSync(password, user.password)){
-                req.session.user_id = user._id
+                // req.session.user_id = user._id
                 console.log("Password is correct")
+
+                let token = jwt.sign({_id:user._id.toString()},"Yo",{expiresIn:"1h"});
+                
+                // user.tokens = user.tokens.concat({token:token})
+                // await user.save()
+
+                res.cookie("token",token,{
+                    httpOnly:true
+                })
+                
                 res.redirect("/dashboard")
+
             }else{
                 console.log("Password is incorrect")
             }
         }
     })
+
 }
 
 // User logout
 const userLogOut = async(req,res)=>{
-    req.session.destroy();
-    res.redirect("/")
+    
+    res.send(req.user_id)
 }
+
 
 // User dashboard
 const userDashboard = async(req,res)=>{
-    res.render("userDashboard")
+    const user = {
+        "name":"vaasu"
+    }
+    res.render("userDashboard",{
+        user:user
+    })
 }
 
 module.exports = {
