@@ -10,9 +10,8 @@ const userController = require("../controllers/userController")
     
 const auth = require("../middleware/auth")
 
-
-router.get("/signup",auth.isLogOut, userController.loadSignUp)
-router.get("/",auth.isLogOut, userController.loadLogin)
+router.get("/signup",auth.isLogOut,userController.loadSignUp)
+router.get("/",auth.isLogOut,userController.loadLogin)
 router.get("/login",auth.isLogOut,userController.loadLogin)
 
 router.post("/signup",userController.insertUSer)
@@ -20,6 +19,11 @@ router.post("/login",userController.authLogin)
 
 router.get("/dashboard",auth.isLogin,userController.userDashboard)
 
-router.get("/logout",auth.isLogin,userController.userLogOut)
+router.get("/logout",auth.verifyUser,userController.userLogOut)
+
+
+// router.get("/check",auth.verifyUser)
+
+// router.get("/check",)
 
 module.exports = router
