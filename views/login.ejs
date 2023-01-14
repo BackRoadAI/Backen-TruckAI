@@ -5,4 +5,9 @@
             <input type="password" name="password" placeholder="Enter Password" required>
             <input type="submit" value="Log In">
         </form>
+        <br>
+        <%if(typeof messgae !=='undefined') { %>
+            <h4><%=messgae%></h4>
+        <%}%>
+
 <%- include("layouts/footer") -%>

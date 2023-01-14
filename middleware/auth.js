@@ -25,7 +25,6 @@ const verifyUser = async(req, res,next)=>{
         let token = req.cookies.token
         const verifyUser = jwt.verify(token,"Yo")
         req.user_id = verifyUser._id
-        // console.log(req.user_id)
         next()
     }
     

@@ -4,12 +4,16 @@ const users = require("../models/users");
 const jwt = require("jsonwebtoken");
 // load signup page
 const loadSignUp = async(req,res)=>{
-    res.render("signup")
+    res.render("signup",{
+        title : "Sign Up | TruckAI"
+    })
 }
 
 // load login page
 const loadLogin = async(req,res)=>{
-    res.render("login")
+    res.render("login",{
+        title : "Log In | TruckAI"
+    })
 }
 
 // insert new user in database
@@ -75,9 +79,9 @@ const authLogin = async (req,res)=>{
 
 }
 
+
 // User logout
 const userLogOut = async(req,res)=>{
-    
     res.send(req.user_id)
 }
 
@@ -88,6 +92,7 @@ const userDashboard = async(req,res)=>{
         "name":"vaasu"
     }
     res.render("userDashboard",{
+        title : "Dashboard",
         user:user
     })
 }

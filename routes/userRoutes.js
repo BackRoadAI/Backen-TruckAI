@@ -1,12 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const userController = require("../controllers/userController")
-// const session = require("express-session")
-
-// router.use(session({
-//     secret: 'secret',
-//     resave: false,
-//     saveUninitialized: false}))
     
 const auth = require("../middleware/auth")
 

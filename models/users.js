@@ -27,11 +27,14 @@ let usersSchema = new mongoose.Schema({
     required: true,
     default: false
   },
-  tokens:[{
-    token:{
-      type: String
-    }
-  }]
+  Truck:{
+    type:Array,
+  }
+  // tokens:[{
+  //   token:{
+  //     type: String
+  //   }
+  // }]
 },
 {
   collection: 'Users'
