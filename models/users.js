@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 let usersSchema = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   email: {
     type: String,
     required: true,
@@ -12,10 +13,6 @@ let usersSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
-  },
-  userID: {
-    type: String,
-    unique: true
   },
   isAdmin:{
     type: Boolean,
@@ -30,11 +27,6 @@ let usersSchema = new mongoose.Schema({
   Truck:{
     type:Array,
   }
-  // tokens:[{
-  //   token:{
-  //     type: String
-  //   }
-  // }]
 },
 {
   collection: 'Users'
@@ -42,4 +34,4 @@ let usersSchema = new mongoose.Schema({
 { strict: false }                                    
 );
 
-module.exports = mongoose.model("Users", usersSchema); // 
+module.exports = mongoose.model("Users", usersSchema);
