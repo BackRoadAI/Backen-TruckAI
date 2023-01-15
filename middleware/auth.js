@@ -32,16 +32,28 @@ const verifyUser = async(req, res,next)=>{
         console.log("User verification failed as "+ err.message)
         res.redirect("/")
     }
+}
 
-    // users.findOne({_id:verifyUser._id}, async (err,user)=>{
-    //     console.log(user)
-    // })
+const truckUserMatching = async(req, res, next)=>{
+    id = req.user_id
+    users.findOne({_id:id},(err,result)=>{
+        truckArray = result.Truck
+        if(truckArray.includes(req.query.truck)){
+            req.user_id = id
+            next();
+        }
+        else{
+            res.redirect("back")
+        }
+    })
     
 }
+
 
 module.exports = {
     isLogin,
     isLogOut,
-    verifyUser
+    verifyUser,
+    truckUserMatching
 }
     
