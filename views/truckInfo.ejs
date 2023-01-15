@@ -1,5 +1,23 @@
 <%- include("layouts/header") -%>
-<h1>Welcome Here is list of trucks alloted to you</h1>
-<p><%=truckInfo%></p>
+<h3>Welcome Here is list of trucks alloted to you</h3>
+
+<ul>
+    <%truckInfo.forEach(function(each_truck){%>
+        <li>
+            <strong>Truck ID: </strong> <%=each_truck.TruckID%>
+
+            <ul>
+                <li><strong>Model: </strong> <%=each_truck.Model%></li>
+                <li>
+                    <form action="/trucks/dashboard" method="get">
+                        <input type="hidden" name="truck" value=<%=each_truck.TruckID%>>
+                        <input type="submit" value="More Info">
+                    </form>
+                </li>
+            </ul>
+        </li>
+    <%})%>
+</ul>
+
 <%- include("layouts/footer") -%>
 
