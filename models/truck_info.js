@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
 let truck_infoSchema = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   TruckID: {
     type: Number,
     required: true,
     unique: true
+  },
+  onDuty:{
+    type: Number
   }
 },
 {
