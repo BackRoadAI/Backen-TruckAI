@@ -1,0 +1,13 @@
+<%- include("layouts/header") -%>
+<h4>Infomation about Truck ID: <strong><%=truckID%></strong></h4>
+<ul>
+    <li>Drug Temperature: <%=infoAPI.drum_temp%>°F</li>
+    <li>Ambient Temperature(Tyre): <%=infoAPI.air_temp%>°F</li>
+    <li>Average Air Pressure(Tyre): <%=infoAPI.psi%> PSI</li>
+
+    <li>Break Indicator: <%=infoAPI.break%></li>
+    
+    <li>Current Speed: <%=infoAPI.speed%> km/hr</li>
+</ul>
+<%- include("layouts/footer") -%>
+
