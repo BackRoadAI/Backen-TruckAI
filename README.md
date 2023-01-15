@@ -1,7 +1,7 @@
 # admin-page
 
 ```
-!git clone https://github.com/BackRoadAI/admin-page.git
+!git clone https://github.com/BackRoadAI/Backen-TruckAI.git
 ```
 
 ```
